@@ -31,7 +31,7 @@ int main(){
 		for(i =0; i < MAX; i++)
 		printf("arvore ordenada ----> %d \n", v4[i]);
 	
-	return 0;
+	return 0;	//Fim main.
 }
 
 
