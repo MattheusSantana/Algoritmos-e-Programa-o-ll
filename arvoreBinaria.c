@@ -80,16 +80,16 @@ void constroi_MaxHeap(int n, int v[]){
 }
 
 void altera_MaxHeap(int n, int v[], int i){
-	if(v[i] < v[esquerdo(i)] || v[i] < v[direito(i)])	//Caso o elemento inserido seja menor do que seus filhos
-		desce(n, v, i);						//Desça esse elemento.
+	if(v[i] < v[esquerdo(i)] || v[i] < v[direito(i)])	//Caso o elemento inserido seja menor do que seus filhos.
+		desce(n, v, i);			//Desça esse elemento.
 
-	if(v[i] > v[pai(i)])						//Caso o elemento em i seja maior do que o elemento pai em i.
-		sobe(i);							//Subindo esse elemento.		
+	if(v[i] > v[pai(i)])			//Caso o elemento em i seja maior do que o elemento pai em i.
+		sobe(i);				//Subindo esse elemento.		
 }
 
 void sobe(int n, int v[], int i){
-		while(v[pai(i)] < v[i]){				//Enquanto o elemento é maior do que o elemento pai.
-		troca(&v[i], &v[pai(i)]);				//Troque.
-		 	i = pai(i);						//Atualizando o valor de i para verificar novamente. 		
+		while(v[pai(i)] < v[i]){	//Enquanto o elemento é maior do que o elemento pai.
+		troca(&v[i], &v[pai(i)]);	//Troque.
+		 	i = pai(i);			//Atualizando o valor de i para verificar novamente. 		
 	}
 }	
