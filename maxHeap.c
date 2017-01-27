@@ -75,6 +75,7 @@ int main(void)
 	
 	n = 10; // Atualizar esse valor caso a quantidade de tarefas da inicialização mude
 
+	heapSort(n, tarefas);
 	constroi_max_heap(n, tarefas);
 	escreve_vetor(n, tarefas);
 
@@ -282,6 +283,21 @@ void remove_heap(int *n, tarefa S[], int i)
 			*n = *n-1;
 			desce(*n, S, i); //Reorganizando o elemento na heap.
 		}
+}
+
+void heapSort(int n, tarefa t[]){
+	int i;
+	tarefa maior;
+
+		constroi_max_heap(n, t);
+	for(i =n-1; i > 0; i-- ){
+		maior = t[0]; // pegando a raiz;
+		t[0] = t[i]; //Pegando o ultimo elemento.
+		t[i] = maior;
+		n = n-1;
+		desce(n, t, 0); //Ordenado o elemento da raiz.
+
+	}
 }
 
 void escreve_tarefa(tarefa t)
