@@ -1,7 +1,7 @@
 /* Programa: bubleSort.c
 Programador: Matheus E. Santana da Silva
 Data: 12/12/2016
-	Estudo da forma normal e recursiva do mÈtodo de ordenaÁ„o por trocas BubleSort.
+	Estudo da forma normal e recursiva do m√©todo de ordena√ß√£o por trocas BubleSort.
 */
 
 
@@ -17,18 +17,18 @@ int main() {
 	for(i =0; i < 5; i++)
 		printf("%d ", v[i]);
 }
-/*MÈtodo de ordenaÁ„o por trocas consecutivas.
-  A cada iteraÁ„o do laÁo, posiciona o elemento do vetor na sua respectiva posiÁ„o
-  analizando se esse elemento È maior do que o prÛximo, sucessivamente,
-  de forma que o vetor fique ordenado em Ûrdem crescente.
-  Recebe um n˙mero inteiro n >= 0 e um vetor v de n˙meros inteiros
+/*M√©todo de ordena√ß√£o por trocas consecutivas.
+  A cada itera√ß√£o do la√ßo, posiciona o elemento do vetor na sua respectiva posi√ß√£o
+  analizando se esse elemento √© maior do que o pr√≥ximo, sucessivamente,
+  de forma que o vetor fique ordenado em √≥rdem crescente.
+  Recebe um n√∫mero inteiro n >= 0 e um vetor v de n√∫meros inteiros
   com n elementos e rearranja o vetor v de modo que fique crescente */
 void bubleSort(int n, int v[]) {
-	int i, j;							//Ìndices dos laÁos for.
+	int i, j;							//√≠ndices dos la√ßos for.
 
 	for(i =n-1; i > 0; i++) {			//Navegando o vetor v[].
 		for(j = 0; j < n; j++) {		//Navegando o vetor v[] para cada elemento do vetor.
-			if(v[j]> v[j+1]){			//Caso o elemento da vez seja maior do que o prÛximo elemento mais a direita.	
+			if(v[j]> v[j+1]){			//Caso o elemento da vez seja maior do que o pr√≥ximo elemento mais a direita.	
 				v[j]   ^= v[j+1];		//Trocando os elementos usando o operador XOR.
 				v[j+1] ^= v[j];
 				v[j]   ^= v[j+1];	
@@ -39,15 +39,15 @@ void bubleSort(int n, int v[]) {
 }
 
 
-/*OrdenaÁ„o por trocas de forma recursiva.
-  Para cada chamada da funÁ„o, o maior elemento
-  do intervalo È posto na ultima posiÁ„o do intervalo.
-  o intervalo decresce a cada chamada da funÁ„o desconsiderando os elementos j· ordenados..	
+/*Ordena√ß√£o por trocas de forma recursiva.
+  Para cada chamada da fun√ß√£o, o maior elemento
+  do intervalo √© posto na ultima posi√ß√£o do intervalo.
+  o intervalo decresce a cada chamada da fun√ß√£o desconsiderando os elementos j√° ordenados..	
 */
 void bubleSort_R(int n, int v[]){
 	int j;
 	
-	if(n <= 0){
+	if(n > 0){
 		for(j =0; j < n; j++){
 				if(v[j]> v[j+1]){
 				v[j]   ^= v[j+1];
