@@ -51,16 +51,16 @@ int desempilha(estacionamento E);
 
 /*Recebe um arquivo de entrada*/
 int main(int argc, char *argv[]){
-	int c; 							//Número de casos de teste.
-	int i, j;						//índices dos laços de repetições.
-	char placa_aux[9];				//Armazena a placa.
-	char nome_pilha[3];				//Nome da pilha.
-	char operacao;					//Armazenará a operação a ser efetuada.
-	int resultado_busca =0;			//armazenará o índice da pilha em que o carro está.
-	int resultado_remocao =0;		//armazenará o resultado da remoção do veículo.
-	int pos_pilha =1;				//Armazenará o inteiro correspondente á posição da pilha no vetor na struct estacionamento.
+	int c; 				//Número de casos de teste.
+	int i, j;			//índices dos laços de repetições.
+	char placa_aux[9];		//Armazena a placa.
+	char nome_pilha[3];		//Nome da pilha.
+	char operacao;			//Armazenará a operação a ser efetuada.
+	int resultado_busca =0;		//armazenará o índice da pilha em que o carro está.
+	int resultado_remocao =0;	//armazenará o resultado da remoção do veículo.
+	int pos_pilha =1;		//Armazenará o inteiro correspondente á posição da pilha no vetor na struct estacionamento.
 	estacionamento Estacionamento;	//Nova Intância de estacionamento. 
-	FILE *ptarq;					//Ponteiro para o arquivo de entrada.
+	FILE *ptarq;			//Ponteiro para o arquivo de entrada.
 
 	/*Abrindo o arquivo de entrada.*/
 	ptarq = fopen(argv[1], "r"); 
@@ -274,9 +274,9 @@ int busca_remove(char placa[], veiculo *t, veiculo *fila, veiculo **fim_fila){
 
 		/*Enquanto ã função não encontrar a placa, os veiculos são colocados em uma fila auxiliar.*/
 		while(strcmp(p->placa, placa) != 0){
-			enfileira_enc_c(fila, fim_fila, p->placa);	//Colocando o veiculo na fila auxiliar. 
-			t->prox = p->prox;							//Apontando a cabeça para o próximo veiculo.
-			free(p);									//removendo o veiculo da pilha.
+			enfileira_enc_c(fila, fim_fila, p->placa); //Colocando o veiculo na fila auxiliar. 
+			t->prox = p->prox;	                   //Apontando a cabeça para o próximo veiculo.
+			free(p);				   //removendo o veiculo da pilha.
 			p = t->prox;
 		}
 		/*Removendo o veículo da pilha.*/
@@ -312,9 +312,9 @@ void re_empilha(veiculo *topo, veiculo *fila, veiculo **fim_fila){
 	while(p != NULL){
 		/*Impilhando carro na pilha.*/
 		empilha_enc_C(p->placa, topo);
-		fila->prox = p->prox;	//Apontando para o segundo elemento da fila.
-		free(p);				//Removendo o primeiro veiculo da fila.
-		p = fila->prox;			//Apontando p para o novo primeiro elemento da fila.
+		fila->prox = p->prox; //Apontando para o segundo elemento da fila.
+		free(p);	      //Removendo o primeiro veiculo da fila.
+		p = fila->prox;	      //Apontando p para o novo primeiro elemento da fila.
 
 		/*Caso o chegue ao fim da fila, aponto o ponteiro do final para a cabeça.*/
 		if(fila->prox == NULL)
@@ -324,8 +324,8 @@ void re_empilha(veiculo *topo, veiculo *fila, veiculo **fim_fila){
 
 /*Essa função recebe um estacionamento E e desempilha todos os carros de suas pilhas.*/
 int desempilha(estacionamento E){
-	veiculo *p;	//Apontará para o topo da pilha.
-	int i;		//Índice de iteração do laço de repetição.
+	veiculo *p; //Apontará para o topo da pilha.
+	int i;	    //Índice de iteração do laço de repetição.
 	
 	/*Navegando pelas pilhas do estacionamento.*/
 	for(i =0; i < NUM_PILHAS; i++){
@@ -334,9 +334,9 @@ int desempilha(estacionamento E){
 			p = E.P[i].topo->prox;
 			/*Navegue até o ultimo elemento.*/
 			while(p->prox != NULL){
-				E.P[i].topo->prox = p->prox;	//Apontando o topo para o 2° elemento da pilha.
-				free(p);						//Removendo o elemento da pilha.
-				p = E.P[i].topo->prox;			//Apontado o ponteiro auxiliar para o novo 1° elemento da pilha.
+				E.P[i].topo->prox = p->prox; //Apontando o topo para o 2° elemento da pilha.
+				free(p);		     //Removendo o elemento da pilha.
+				p = E.P[i].topo->prox;	     //Apontado o ponteiro auxiliar para o novo 1° elemento da pilha.
 			}
 			/*Limpando o ultimo elemento da pilha.*/
 			free(p);
