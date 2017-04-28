@@ -16,8 +16,8 @@
 /* Armazena informacoes de uma capivara */
 typedef struct {
 	char nome[MAX_NOME+1];
-	int ultimo_peso; 		/* Ultimo peso registrado */
-	int var_total; 			/* Variacao total de peso */
+	int ultimo_peso;	/* Ultimo peso registrado */
+	int var_total;		/* Variacao total de peso */
 	int max_var_mensal; 	/* Maior variacao mensal encontrada */
 	char nascimento[11];	/* Data de nascimento */
 } capivara;
