@@ -25,8 +25,8 @@ typedef struct {
 /* Armazena informacoes de uma familia de capivaras */
 typedef struct {
 	char nome[MAX_NOME+1];
-	int num_capis; 					/* Quantidade de capivaras na familia */
-	int num_meses; 					/* Meses registrados */
+	int num_capis; 	/* Quantidade de capivaras na familia */
+	int num_meses; 	/* Meses registrados */
 	capivara capis[MAX_CAPIVARAS]; 	/* Armazena as capivaras */
 } familia;
 
@@ -59,15 +59,15 @@ int ordem_lexicografica(capivara capivaras[], int i, int j);
 
 
 int main(){
-	int f =0;						//Quantidade de famílias.
-	int n =0;						//Quantidade de capivaras da família.
-	int lacos =0;					//Variável auxiliar que contará.
-	int i =0, j =0;					//índices de iterações dos laços de repetição. 
-	int posicao = 0;				//Armazena a posição da capivara no vetor de registros.
-	int peso_Aux =0;				//Armazenará o novo peso da capivara.	
-	char nome_Aux[MAX_NOME+1];		//Armazenará o nome da capivara no momento do cadastro do peso, para busca-la no registro de capivaras.
+	int f =0;			//Quantidade de famílias.
+	int n =0;			//Quantidade de capivaras da família.
+	int lacos =0;	 		//Variável auxiliar que contará.
+	int i =0, j =0;			//índices de iterações dos laços de repetição. 
+	int posicao = 0;		//Armazena a posição da capivara no vetor de registros.
+	int peso_Aux =0;		//Armazenará o novo peso da capivara.	
+	char nome_Aux[MAX_NOME+1];	//Armazenará o nome da capivara no momento do cadastro do peso, para busca-la no registro de capivaras.
 	char descricaoMes[MAX_NOME+1];	//Descrição sobre o mês.
-	familia familias;				//Registro de uma familia de capivaras.
+	familia familias;		//Registro de uma familia de capivaras.
 	
 	/*Lendo a quantidade de famílias*/
 	scanf("%d", &f);
@@ -81,19 +81,19 @@ int main(){
 
 		/*Registrando os nome e as datas de nascimento das capivaras*/
 		for(i = 0; i < n; i++){
-			scanf(" %[^,]%*c", familias.capis[i].nome);				//Lendo o nome da capivara até a virgula.
-			scanf(" %[^\n]%*c", familias.capis[i].nascimento);		//Lendo a data de nascimento da capivara até o '\n'.
+			scanf(" %[^,]%*c", familias.capis[i].nome);	   //Lendo o nome da capivara até a virgula.
+			scanf(" %[^\n]%*c", familias.capis[i].nascimento); //Lendo a data de nascimento da capivara até o '\n'.
 		}
 
 		/*Registrando os pesos das capivaras*/
-		scanf("%d", &familias.num_meses); 							//Lendo a Quantidade de meses.
+		scanf("%d", &familias.num_meses); //Lendo a Quantidade de meses.
 			for(i =0; i < familias.num_meses; i++){
-				scanf(" %[^\n]%*c", descricaoMes); 					//Lendo o nome descritivo do mês.
+				scanf(" %[^\n]%*c", descricaoMes);//Lendo o nome descritivo do mês.
 					
 					/*Lendo o nome das capivaras e cadastrando seus respectivos pesos.*/
 					for(j =0; j < n; j++){ 				
-						scanf(" %[^,]%*c", nome_Aux);				//Lendo nome até a virgula.
-						scanf("%d", &peso_Aux); 					//Lendo o peso.
+						scanf(" %[^,]%*c", nome_Aux); //Lendo nome até a virgula.
+						scanf("%d", &peso_Aux);       //Lendo o peso.
 
 						/*Procurando a posição da capivara no vetor de registro.*/
 						posicao = buscar_Nome(nome_Aux, n, familias.capis); 
@@ -200,10 +200,10 @@ void mergeSort(int p, int r, capivara v[]){
 /* Recebe os vetores decrescentes v[p..q-1] e v[q..r-1]
 e rearranja v[p..r-1] em ordem decrescente */
 void intercala(int p, int q, int r, capivara v[]){
-	int i =p; 			//Inicio do intervalo.
-	int j =q; 			//Meio do intervalo.
-	capivara w[r-p]; 	//Vetor auxiliar de capivaras.
-	int k =0 ; 			//Indice de iteração dos laços.
+	int i =p;	 //Inicio do intervalo.
+	int j =q; 	 //Meio do intervalo.
+	capivara w[r-p]; //Vetor auxiliar de capivaras.
+	int k =0 ; 	//Indice de iteração dos laços.
 
 		while(i < q && j < r){
 			/*Caso a variação total de i seja maior, adicione i*/
@@ -262,7 +262,7 @@ int ordena_criterios(capivara capivaras[], int i, int j){
 			if(calcula_dias(capivaras[i].nascimento) < calcula_dias(capivaras[j].nascimento))
 				return i;
 			/*Avaliando pelo terceiro critério caso haja empate*/
-		    else if(calcula_dias(capivaras[i].nascimento) == calcula_dias(capivaras[j].nascimento))
+		    	else if(calcula_dias(capivaras[i].nascimento) == calcula_dias(capivaras[j].nascimento))
 			 	return ordem_lexicografica(capivaras, i, j);
 			else
 				return j;
